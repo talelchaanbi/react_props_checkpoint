@@ -1,3 +1,6 @@
+// Carousel.js
+// Lightweight fade-transition carousel with autoplay, manual controls, and dots.
+// Consumes slide data from src/data/slides.js (title, subtitle, image).
 import React, { useEffect, useState } from 'react';
 import slides from '../data/slides';
 
@@ -6,6 +9,7 @@ const Carousel = () => {
 
   const [index, setIndex] = useState(0);
 
+  // Autoplay: advance slide every 4 seconds
   useEffect(() => {
     const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), 4000);
     return () => clearInterval(id);
@@ -67,7 +71,7 @@ const Carousel = () => {
         ›
       </button>
 
-      {/* Dots */}
+      {/* Dots: small indicators to jump to slides */}
       <div className="absolute bottom-3 left-0 right-0 flex items-center justify-center gap-2">
         {slides.map((_, i) => (
           <button

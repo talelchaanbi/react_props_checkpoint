@@ -1,11 +1,15 @@
+// Footer.js
+// Minimal site footer with copyright and simple social links (icons as inline SVGs)
 import React from 'react';
 
 const Footer = () => {
   return (
     <footer className="mt-16 border-t border-slate-200 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        {/* Dynamic current year for convenience */}
         <p className="text-sm text-slate-500">© {new Date().getFullYear()} ProBall Profiles. All rights reserved.</p>
         <div className="flex items-center gap-4 text-slate-500">
+          {/* Example social links (placeholder URLs) */}
           <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub" className="hover:text-slate-700 transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.1-.76.08-.75.08-.75 1.22.09 1.86 1.26 1.86 1.26 1.08 1.85 2.83 1.32 3.52 1.01.11-.8.42-1.32.76-1.62-2.66-.3-5.46-1.34-5.46-5.98 0-1.32.47-2.4 1.25-3.24-.13-.3-.54-1.51.12-3.15 0 0 1.02-.33 3.35 1.24a11.6 11.6 0 0 1 6.1 0c2.33-1.57 3.35-1.24 3.35-1.24.66 1.64.25 2.85.12 3.15.78.84 1.25 1.92 1.25 3.24 0 4.66-2.8 5.68-5.47 5.98.43.37.81 1.1.81 2.23v3.3c0 .32.22.7.82.58A12 12 0 0 0 12 .5Z"/></svg>
           </a>

@@ -1,7 +1,15 @@
+<!--
+  Base HTML document for the React app.
+  Notes:
+  - We load Tailwind CSS via CDN for simplicity (no PostCSS build step needed).
+  - The Tailwind config below adds theme colors, keyframes, and dark mode toggling via the `dark` class.
+  - The React app mounts into the <div id="root"></div> container.
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <!-- Site favicon (soccer icon) -->
     <link rel="icon" href="https://icons.iconarchive.com/icons/martin-berube/sport/256/Soccer-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -11,12 +19,16 @@
 ProBall Profiles: Showcasing Top FIFA Players
       "
     />
+    <!-- Apple touch icon for PWA homescreen -->
     <link rel="apple-touch-icon" href="https://icons.iconarchive.com/icons/martin-berube/sport/256/Soccer-icon.png" />
 
 
+      <!-- Tailwind CDN: allows utility-first styling without a local build pipeline -->
       <script src="https://cdn.tailwindcss.com"></script>
       <script>
         // Tailwind theme customization
+        // - darkMode: toggled via document root class `dark`
+        // - extend: custom brand palette and purpose-built animations
         tailwind.config = {
           darkMode: 'class',
           theme: {
@@ -59,11 +71,14 @@ ProBall Profiles: Showcasing Top FIFA Players
         };
       </script>
     
-    <title>
-ProBall Profiles</title>
+    <!-- Document title (displayed in browser tab) -->
+    <title>ProBall Profiles</title>
   </head>
   <body>
+    <!-- Guidance for users with JS disabled -->
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <!-- React mounts here -->
     <div id="root"></div>
 
   </body>

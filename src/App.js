@@ -1,3 +1,6 @@
+// App.js
+// High-level application shell composing Navbar, Hero (with Carousel), PlayersList, and Footer.
+// This file arranges page sections and applies global background theme classes.
 import PlayersList from './features/players/PlayersList';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -5,9 +8,11 @@ import Carousel from './components/Carousel';
 
 function App() {
   return (
+    // App container provides light/dark backgrounds and text color defaults
     <div className="App min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-900 dark:text-slate-100">
-  <Navbar />
-  {/* Hero */}
+      {/* Site navigation with brand and theme toggle */}
+      <Navbar />
+      {/* Hero section with decorative SVG background and the Carousel */}
       <section id="home" className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 opacity-20 pointer-events-none" aria-hidden="true">
           <svg className="absolute -top-10 left-1/2 -translate-x-1/2" width="1200" height="300" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,6 +24,7 @@ function App() {
             </defs>
           </svg>
         </div>
+        {/* Centered hero content with animated gradient headline */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-600 via-purple-600 to-pink-600 animate-gradientX">Discover Elite Football Talent</span>
@@ -29,10 +35,10 @@ function App() {
           </div>
         </div>
       </section>
-      {/* Root renders the PlayersList as per checkpoint requirements */}
+      {/* Main content: renders the list of player cards as per checkpoint requirements */}
       <PlayersList />
 
-      {/* About */}
+      {/* About section gives context about the site */}
       <section id="about" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 scroll-mt-24">
         <div className="rounded-2xl bg-white/70 border border-slate-200 p-6 shadow-sm">
           <h2 className="text-xl font-semibold text-slate-900">About ProBall Profiles</h2>

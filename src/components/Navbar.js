@@ -1,8 +1,15 @@
+// Navbar.js
+// Sticky top navigation bar containing:
+// - Brand (site name)
+// - In-page navigation links with smooth scroll
+// - Dark mode toggle (persisted in localStorage)
+// - Primary call-to-action button
 import React, { useEffect, useState } from 'react';
 
 const Navbar = () => {
   const [isDark, setIsDark] = useState(false);
 
+  // On mount, read persisted theme preference and apply the `dark` class to <html>
   useEffect(() => {
     const saved = localStorage.getItem('theme-dark');
     const enabled = saved === 'true';
@@ -17,6 +24,7 @@ const Navbar = () => {
     localStorage.setItem('theme-dark', String(next));
   };
 
+  // Soft navigation: smoothly scroll to section and trigger a brief fade animation
   const handleNavClick = (e, href) => {
     // Soft transition: smooth scroll and add a temporary fade to the target section
     const targetId = href.replace('#', '');
@@ -39,7 +47,8 @@ const Navbar = () => {
           <span className="inline-block h-8 w-8 rounded-lg bg-gradient-to-br from-brand-500 to-purple-600 text-white grid place-items-center font-bold shadow">P</span>
           <span className="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 bg-clip-text text-transparent bg-gradient-to-r from-brand-600 via-purple-600 to-pink-600 animate-gradientX">ProBall Profiles</span>
         </a>
-        <nav className="hidden sm:flex items-center gap-6 text-sm text-slate-700 dark:text-slate-300">
+  {/* In-page navigation links */}
+  <nav className="hidden sm:flex items-center gap-6 text-sm text-slate-700 dark:text-slate-300">
           {[
             { href: '#home', label: 'Home' },
             { href: '#players', label: 'Players' },

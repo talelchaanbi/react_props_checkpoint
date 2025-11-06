@@ -1,9 +1,14 @@
-// Player.js (moved to components/)
-// Renders a single player's information inside a Tailwind-styled card.
+// Player.js
+// Tailwind-styled player card component.
+// Responsibilities:
+// - Display player portrait (uniform aspect) with hover zoom
+// - Show jersey number and nationality flag as overlays
+// - Render basic stats (nationality, jersey #, age)
+// - Provide a subtle interactive 3D tilt on mouse move
 
 import React, { useRef, useState } from 'react';
 
-// Small helper to render a flag emoji based on nationality name
+// Helper: map nationality names to flag emojis (fallback to white flag)
 const flagFor = (country) => {
   const map = {
     Argentina: '🇦🇷',
@@ -14,6 +19,7 @@ const flagFor = (country) => {
   return map[country] || '🏳️';
 };
 
+// Props with default values ensure the card renders even with partial data
 const Player = ({
   name = 'Unknown Player',
   team = 'Unknown Team',
@@ -25,6 +31,7 @@ const Player = ({
   const cardRef = useRef(null);
   const [tilt, setTilt] = useState('');
 
+  // Compute a transform based on pointer position to simulate a tilt effect
   const handleMouseMove = (e) => {
     const el = cardRef.current;
     if (!el) return;
@@ -38,6 +45,7 @@ const Player = ({
     setTilt(`rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`);
   };
 
+  // Reset transform on mouse leave
   const handleMouseLeave = () => {
     setTilt('');
   };
